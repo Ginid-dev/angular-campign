@@ -13,10 +13,10 @@ export class CampaignComponent implements OnInit {
   constructor(private CampaignService: CampaignService) {}
 
   ngOnInit(): void {
-    this.gerCampaignDat();
+    this.gerCampaignData();
   }
 
-  gerCampaignDat() {
+  gerCampaignData() {
     this.CampaignService.getCampaign()
       .then((result) => {
         this.campaignData = result;
