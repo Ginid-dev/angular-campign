@@ -1,0 +1,16 @@
+<div *ngIf="campaignData">
+  <p>Name: {{ campaignData.name }}</p>
+  <p>code: {{ campaignData.code }}</p>
+  <p>email: {{ campaignData.email }}</p>
+  <p>phone: {{ campaignData.phone }}</p>
+  <p>website: {{ campaignData.website }}</p>
+  <p>
+    Events: <br />
+    <ng-container *ngIf="campaignData.events && campaignData.events.length">
+      <section *ngFor="let event of campaignData.events">
+        <p>Event Name: {{ event.name }}</p>
+        <p>Tag line: <span [innerHTML]="event.tagline"></span></p>
+      </section>
+    </ng-container>
+  </p>
+</div>
