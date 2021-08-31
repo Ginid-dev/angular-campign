@@ -8,7 +8,14 @@ import { CampaignService } from '../../services/campaign/campaign.service';
   styleUrls: ['./campaign.component.scss'],
 })
 export class CampaignComponent implements OnInit {
-  campaignData: any = null;
+  isDataLoaded: boolean = false;
+  name: string = '';
+  uuid: string = '';
+  logo: string = '';
+  website: string = '';
+  code: string = '';
+  email: string = '';
+  phone: string = '';
 
   constructor(private CampaignService: CampaignService) {}
 
@@ -18,8 +25,15 @@ export class CampaignComponent implements OnInit {
 
   gerCampaignData() {
     this.CampaignService.getCampaign()
-      .then((result) => {
-        this.campaignData = result;
+      .then((result: any) => {
+        this.isDataLoaded = true;
+        this.name = result.name;
+        this.uuid = result.uuid;
+        this.logo = result.logo;
+        this.website = result.website;
+        this.code = result.code;
+        this.email = result.email;
+        this.phone = result.phone;
       })
       .catch((err) => {
         console.log('Some thing went wrong');
